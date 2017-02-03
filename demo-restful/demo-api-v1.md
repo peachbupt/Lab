@@ -7,22 +7,6 @@
 
 ##Paths
 
-###POST /websites
-#### Description
-
-Create a new `demo` object.
-
-#### Parameters
-|Type|Name|Description|Schema|Default|
-|---|---|---|---|---|
-|**Body**|**website**  <br>*required*|New Item to add to Website |[Website](#website)||
-
-#### Responses
-
-|HTTP Code|Description|Schema|
-|---|---|---|
-|**200**|Successful response|[Website](#website)|
-
 ### GET /websites
 
 #### Parameters
@@ -37,6 +21,24 @@ Create a new `demo` object.
 |HTTP Code|Description|Schema|
 |---|---|---|
 |**200**|Successful response|<[Website](#website)> array|
+
+###POST /websites
+#### Description
+
+Create a new `website` object.
+
+#### Parameters
+|Type|Name|Description|Schema|Default|
+|---|---|---|---|---|
+|**Body**|**website**  <br>*required*|New Item to add to Website |[Website](#website)||
+
+#### Responses
+
+|HTTP Code|Description|Schema|
+|---|---|---|
+|**200**|Successful response|[Website](#website)|
+
+
 
 <a name="definitions"></a>
 ## Definitions
