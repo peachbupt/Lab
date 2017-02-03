@@ -7,7 +7,7 @@
 
 ##Paths
 
-###POST /website
+###POST /websites
 #### Description
 
 Create a new `demo` object.
@@ -23,7 +23,7 @@ Create a new `demo` object.
 |---|---|---|
 |**200**|Successful response|[Website](#website)|
 
-### GET /website
+### GET /websites
 
 #### Parameters
 
