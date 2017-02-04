@@ -1,13 +1,6 @@
 from flask import Flask, jsonify, request, abort, url_for, g
 from flask.ext.httpauth import HTTPBasicAuth
-from passlib.apps import custom_app_context as pwd_context
-from itsdangerous import (TimedJSONWebSignatureSerializer
-                          as Serializer, BadSignature, SignatureExpired)
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'the quick brown fox jumps over the lazy dog'
-IDtoName = {}
-UserDB = {}
+from app import models, app
 
 websites = [
     {
@@ -24,35 +17,6 @@ websites = [
 
 auth = HTTPBasicAuth()
 
-class User():
-    index = 0
-    def __init__(self, username):
-        self.username = username
-        self.id = User.index
-        IDtoName[self.id] = self.username
-        User.index += 1
-    def hash_password(self, password):
-        self.password = pwd_context.encrypt(password)
-
-    def verify_password(self, password):
-        return pwd_context.verify(password, self.password)
-
-    def generate_auth_token(self, expiration = 600):
-        s = Serializer(app.config['SECRET_KEY'], expires_in = expiration)
-        return s.dumps({'id': self.id})
-
-    @staticmethod
-    def verify_auth_token(token):
-        s = Serializer(app.config['SECRET_KEY'])
-        try:
-            data = s.loads(token)
-        except SignatureExpired:
-            return None
-        except BadSignature:
-            return None
-        user = UserDB[IDtoName[data['id']]]
-        return user
-
 @app.route("/demo/api/v1/users", methods = ['POST'])
 def new_user():
     username = request.json.get('username')
@@ -60,31 +24,33 @@ def new_user():
     print username, password
     if username is None or password is None:
         abort(400)
-    if UserDB.has_key(username):
+    if models.User.find_byname(username):
         abort(400)
     else:
-        user = User(username)
+        user = models.User(username)
         user.hash_password(password)
-        UserDB[username] = user
+        user.save()
         return jsonify({'username':user.username}), 201, \
-        {'Location': url_for('get_user', id = user.id, _external = True)}
+        {'Location': url_for('get_user', username = user.username, _external = True)}
+
 @app.route('/')
 def index():
     return 'hello world'
 
+#render a page
 @auth.verify_password
-@app.route('/demo/api/v1/users/<int:id>')
-def get_user(id):
-    user = UserDB[IDtoName[id]]
+@app.route('/demo/api/v1/users/<string:username>')
+def get_user(username):
+    user = models.User.find_byname(username)
     if not user:
         abort(400)
     return jsonify({'username' : user.username})
 
 @auth.verify_password
 def verify_password(username_or_token, password):
-    user = User.verify_auth_token(username_or_token)
+    user = models.User.verify_auth_token(username_or_token)
     if not user:
-        user = UserDB[username_or_token]
+        user = models.User.find_byname(username_or_token)
         if not user or not user.verify_password(password):
             return False
     g.user = user
@@ -113,6 +79,3 @@ def create_website():
     }
     websites.append(website)
     return jsonify({"website" : website}), 201
-
-if __name__ == "__main__":
-    app.run(host = '0.0.0.0', debug = True)
