@@ -28,15 +28,27 @@ $ flask/bin/pip install coverage
 
 ## DB operation
 
+* create DB
+
+	~~~
+db_create.py
+~~~
+
+* migrate DB
+
+	~~~
+	db_migrate.py
+~~~
+
 * create two users
 
-~~~
+	~~~
 >>> u = models.User(nickname='john', email='john@email.com')
 >>> db.session.add(u)
 >>> db.session.commit()
 ~~~
-
-~~~
+	
+	~~~
 >>> u = models.User(nickname='susan', email='susan@email.com')
 >>> db.session.add(u)
 >>> db.session.commit()
@@ -44,7 +56,7 @@ $ flask/bin/pip install coverage
 
 * create post
 
-~~~
+	~~~
 >>> import datetime
 >>> u = models.User.query.get(1)
 >>> p = models.Post(body='my first post!', timestamp=datetime.datetime.utcnow(), author=u)

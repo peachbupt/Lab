@@ -1,2 +1,4 @@
 microblog/flask/*
+microblog/app.db
+microblog/db_repository
 *.pyc
