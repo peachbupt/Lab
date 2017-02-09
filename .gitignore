@@ -2,6 +2,7 @@ microblog/flask/*
 microblog/tmp/*
 microblog/app.db
 microblog/test.db
+microblog/search.db/*
 microblog/db_repository
 .DS_Store
 *.pyc
