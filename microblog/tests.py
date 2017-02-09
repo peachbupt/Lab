@@ -96,6 +96,7 @@ class TestCase(unittest.TestCase):
         f2 = u2.followed_posts().all()
         f3 = u3.followed_posts().all()
         f4 = u4.followed_posts().all()
+        print f1,f2,f3,f4
         assert len(f1) == 3
         assert len(f2) == 2
         assert len(f3) == 2
