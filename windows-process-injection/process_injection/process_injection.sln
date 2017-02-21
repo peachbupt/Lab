@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "process_injection", "process_injection\process_injection.vcproj", "{D99CE3B2-0584-4442-B44B-58C5B46EA5EF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "injection", "injection\injection.vcproj", "{A52FD6F3-01C2-43CF-A2BC-157DF23DF8A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D99CE3B2-0584-4442-B44B-58C5B46EA5EF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D99CE3B2-0584-4442-B44B-58C5B46EA5EF}.Debug|Win32.Build.0 = Debug|Win32
+		{D99CE3B2-0584-4442-B44B-58C5B46EA5EF}.Debug|x64.ActiveCfg = Debug|x64
+		{D99CE3B2-0584-4442-B44B-58C5B46EA5EF}.Debug|x64.Build.0 = Debug|x64
+		{D99CE3B2-0584-4442-B44B-58C5B46EA5EF}.Release|Win32.ActiveCfg = Release|Win32
+		{D99CE3B2-0584-4442-B44B-58C5B46EA5EF}.Release|Win32.Build.0 = Release|Win32
+		{D99CE3B2-0584-4442-B44B-58C5B46EA5EF}.Release|x64.ActiveCfg = Release|x64
+		{D99CE3B2-0584-4442-B44B-58C5B46EA5EF}.Release|x64.Build.0 = Release|x64
+		{A52FD6F3-01C2-43CF-A2BC-157DF23DF8A4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A52FD6F3-01C2-43CF-A2BC-157DF23DF8A4}.Debug|Win32.Build.0 = Debug|Win32
+		{A52FD6F3-01C2-43CF-A2BC-157DF23DF8A4}.Debug|x64.ActiveCfg = Debug|Win32
+		{A52FD6F3-01C2-43CF-A2BC-157DF23DF8A4}.Release|Win32.ActiveCfg = Release|Win32
+		{A52FD6F3-01C2-43CF-A2BC-157DF23DF8A4}.Release|Win32.Build.0 = Release|Win32
+		{A52FD6F3-01C2-43CF-A2BC-157DF23DF8A4}.Release|x64.ActiveCfg = Release|x64
+		{A52FD6F3-01C2-43CF-A2BC-157DF23DF8A4}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

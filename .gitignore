@@ -5,4 +5,6 @@ microblog/test.db
 microblog/search.db/*
 microblog/db_repository
 .DS_Store
+*.ncb
+*.suo
 *.pyc
