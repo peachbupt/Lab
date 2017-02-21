@@ -10,7 +10,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	char dll[MAX_PATH];
 	GetEnvironmentVariable("programfiles",ie,sizeof(ie));
 	strcat(ie,"\\Internet Explorer\\iexplore.exe");
-	strcpy(dll,argv[1]);
+	strcpy(dll,"injection.dll");
 	STARTUPINFO si;
 	PROCESS_INFORMATION pi;
 	ZeroMemory(&si,sizeof(si));
