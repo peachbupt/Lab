@@ -7,4 +7,8 @@ microblog/db_repository
 .DS_Store
 *.ncb
 *.suo
+*.user
 *.pyc
+Debug/
+Release/
+x64/
