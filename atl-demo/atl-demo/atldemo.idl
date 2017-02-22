@@ -1,0 +1,64 @@
+// atldemo.idl : IDL source for atl-demo
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (atldemo.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(a817e7a2-43fa-11d0-9e44-00aa00b6770a),
+	dual,
+	helpstring("IComponentRegistrar Interface"),
+	pointer_default(unique)
+]
+interface IComponentRegistrar : IDispatch
+{
+	[id(1)]	HRESULT Attach([in] BSTR bstrPath);
+	[id(2)]	HRESULT RegisterAll();
+	[id(3)]	HRESULT UnregisterAll();
+	[id(4)]	HRESULT GetComponents([out] SAFEARRAY(BSTR)* pbstrCLSIDs, [out] SAFEARRAY(BSTR)* pbstrDescriptions);
+	[id(5)]	HRESULT RegisterComponent([in] BSTR bstrCLSID);
+	[id(6)] HRESULT UnregisterComponent([in] BSTR bstrCLSID);
+};
+
+[
+	object,
+	uuid(1D8D593F-D92F-419E-9FF1-FA49403AAD3A),
+	dual,
+	nonextensible,
+	helpstring("IMyClass Interface"),
+	pointer_default(unique)
+]
+interface IMyClass : IDispatch{
+	[id(1), helpstring("method TotalSum")] HRESULT TotalSum([in] LONG n, [out] LONG* sum);
+};
+[
+	uuid(410EF0F5-512C-4AC8-8AC5-F7558768E157),
+	version(1.0),
+	helpstring("atldemo 1.0 Type Library"),
+	custom(a817e7a1-43fa-11d0-9e44-00aa00b6770a,"{651C1AB5-97D5-4D25-9EFA-F8B7A30B4714}")
+]
+library atldemoLib
+{
+	importlib("stdole2.tlb");
+
+	[
+		uuid(651C1AB5-97D5-4D25-9EFA-F8B7A30B4714),
+		helpstring("ComponentRegistrar Class")
+	]
+	coclass CompReg
+	{
+		[default] interface IComponentRegistrar;
+	};
+	[
+		uuid(D94F275D-FF8F-4B72-9827-A2163D81B70B),
+		helpstring("MyClass Class")
+	]
+	coclass MyClass
+	{
+		[default] interface IMyClass;
+	};
+};

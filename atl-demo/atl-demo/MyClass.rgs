@@ -1,0 +1,26 @@
+HKCR
+{
+	atldemo.MyClass.1 = s 'MyClass Class'
+	{
+		CLSID = s '{D94F275D-FF8F-4B72-9827-A2163D81B70B}'
+	}
+	atldemo.MyClass = s 'MyClass Class'
+	{
+		CLSID = s '{D94F275D-FF8F-4B72-9827-A2163D81B70B}'
+		CurVer = s 'atldemo.MyClass.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {D94F275D-FF8F-4B72-9827-A2163D81B70B} = s 'MyClass Class'
+		{
+			ProgID = s 'atldemo.MyClass.1'
+			VersionIndependentProgID = s 'atldemo.MyClass'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{410EF0F5-512C-4AC8-8AC5-F7558768E157}'
+		}
+	}
+}
