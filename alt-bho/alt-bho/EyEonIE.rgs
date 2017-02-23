@@ -1,0 +1,26 @@
+HKCR
+{
+	altbho.EyEonIE.1 = s 'EyEonIE Class'
+	{
+		CLSID = s '{65778286-C644-4543-B983-B265AB446A65}'
+	}
+	altbho.EyEonIE = s 'EyEonIE Class'
+	{
+		CLSID = s '{65778286-C644-4543-B983-B265AB446A65}'
+		CurVer = s 'altbho.EyEonIE.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {65778286-C644-4543-B983-B265AB446A65} = s 'EyEonIE Class'
+		{
+			ProgID = s 'altbho.EyEonIE.1'
+			VersionIndependentProgID = s 'altbho.EyEonIE'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{C944AC7E-EAB7-4E84-AF37-9847AB408A99}'
+		}
+	}
+}

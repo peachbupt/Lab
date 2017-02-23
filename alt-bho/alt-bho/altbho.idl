@@ -1,0 +1,63 @@
+// altbho.idl : IDL source for alt-bho
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (altbho.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(a817e7a2-43fa-11d0-9e44-00aa00b6770a),
+	dual,
+	helpstring("IComponentRegistrar Interface"),
+	pointer_default(unique)
+]
+interface IComponentRegistrar : IDispatch
+{
+	[id(1)]	HRESULT Attach([in] BSTR bstrPath);
+	[id(2)]	HRESULT RegisterAll();
+	[id(3)]	HRESULT UnregisterAll();
+	[id(4)]	HRESULT GetComponents([out] SAFEARRAY(BSTR)* pbstrCLSIDs, [out] SAFEARRAY(BSTR)* pbstrDescriptions);
+	[id(5)]	HRESULT RegisterComponent([in] BSTR bstrCLSID);
+	[id(6)] HRESULT UnregisterComponent([in] BSTR bstrCLSID);
+};
+
+[
+	object,
+	uuid(E0F5ECFC-9244-4B3E-9E90-C30FF28FA943),
+	dual,
+	nonextensible,
+	helpstring("IEyEonIE Interface"),
+	pointer_default(unique)
+]
+interface IEyEonIE : IDispatch{
+};
+[
+	uuid(C944AC7E-EAB7-4E84-AF37-9847AB408A99),
+	version(1.0),
+	helpstring("altbho 1.0 Type Library"),
+	custom(a817e7a1-43fa-11d0-9e44-00aa00b6770a,"{3BA845B4-D8A8-4186-AFEF-06E0A59FFA03}")
+]
+library altbhoLib
+{
+	importlib("stdole2.tlb");
+
+	[
+		uuid(3BA845B4-D8A8-4186-AFEF-06E0A59FFA03),
+		helpstring("ComponentRegistrar Class")
+	]
+	coclass CompReg
+	{
+		[default] interface IComponentRegistrar;
+	};
+	[
+		uuid(65778286-C644-4543-B983-B265AB446A65),
+		helpstring("EyEonIE Class")
+	]
+	coclass EyEonIE
+	{
+		[default] interface IEyEonIE;
+	};
+};

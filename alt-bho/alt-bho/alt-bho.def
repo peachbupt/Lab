@@ -1,0 +1,10 @@
+; alt-bho.def : Declares the module parameters.
+
+LIBRARY      "alt-bho.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE
+	DllInstall		PRIVATE
