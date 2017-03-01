@@ -181,6 +181,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Impersonation.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\stdafx.cpp"
 				>
 				<FileConfiguration

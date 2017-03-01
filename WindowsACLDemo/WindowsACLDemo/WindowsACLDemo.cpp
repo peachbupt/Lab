@@ -10,6 +10,7 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	GetAndPrintToken();
 	GetAndPrintSecurityDescs(_T("C:\\Users\\jinxingh\\Documents\\github\\Lab\\WindowsACLDemo\\WindowsACLDemo\\DemoApi.h"));
+	ImpersonationTest();
 	getchar();
 	return 0;
 }
