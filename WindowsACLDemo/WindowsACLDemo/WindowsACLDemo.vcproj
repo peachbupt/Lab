@@ -185,6 +185,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\MICBasic.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\MICCreateLowProcess.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\stdafx.cpp"
 				>
 				<FileConfiguration

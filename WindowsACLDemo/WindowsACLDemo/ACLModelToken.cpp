@@ -141,15 +141,9 @@ int PrintGroupsAndPrivilegesFromToken(HANDLE hToken)
 
 BOOL GetAndPrintToken()
 {
-	DWORD dwSize = 0;
 	HANDLE hToken = NULL;
 	PTOKEN_USER ptu = NULL;
 	OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &hToken);
-	if(!GetTokenInformation(hToken, TokenUser, NULL, 0, &dwSize)
-		&& ERROR_INSUFFICIENT_BUFFER != GetLastError())
-	{
-		return FALSE;
-	}
 	PrintUserFromToken(hToken);
 	PrintGroupsAndPrivilegesFromToken(hToken);
 	CloseHandle(hToken);
